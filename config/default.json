@@ -23,7 +23,7 @@
   "html": [
     {
 			"name": "homepage",
-      "title": "Everything is Awesome",
+      "title": "Ascenseur en copropriété",
       "template": "_default.html",
       "filename": "index.html"
     }

@@ -11,14 +11,12 @@ class Loading extends PureComponent {
       error,
     } = this.props;
 
-    const errorMessage = 'We can&apos;t pull up information at this point, please try again.'
+    const errorMessage = `We can\'t pull up information at this point, please try again. ${error}`
 
     if (isLoading) {
       if (timedOut) {
         return <div>{errorMessage}</div>;
-      } if (pastDelay) {
-        return <div className="loader">Loading...</div>;
-      }
+      } 
       return null;
     } if (error) {
       return <div>{errorMessage}</div>;

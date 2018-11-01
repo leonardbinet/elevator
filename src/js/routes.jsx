@@ -1,34 +1,15 @@
-import React from 'react'
-import {
-  Route,
-  Switch,
-  withRouter,
-} from 'react-router-dom'
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import LazyLoading from './common/components/LazyLoading'
+import LazyLoading from "./common/components/LazyLoading";
 
-const ExampleRouteHandler = LazyLoading(() => import('./views/example'))
-const Header = LazyLoading(() => import('./common/components/Header/Header'))
-
-const JustAnotherPage = () => (
-  <div>
-    <h2>This is Just Another Page</h2>
-    <p>Please remove this from your route, it is just to show case basic setup for router.</p>
-  </div>
-)
-
-const HeaderWithRouter = withRouter((props) => <Header {...props} />)
+const HomeRouteHandler = LazyLoading(() => import("./views/home"));
+const ArticlesRouteHandler = LazyLoading(() => import("./views/articles"));
 
 module.exports = (
-  <div className="container">
-    <HeaderWithRouter />
-    <hr />
-    <div className="container__content">
-      <Switch>
-        <Route exact path="/" component={ExampleRouteHandler} />
-        <Route path="/page" component={JustAnotherPage} />
-        <Route path="*" component={ExampleRouteHandler} />
-      </Switch>
-    </div>
-  </div>
-)
+  <Switch>
+    <Route exact path="/" component={HomeRouteHandler} />
+    <Route path="/articles" component={ArticlesRouteHandler} />
+  </Switch>
+);
+

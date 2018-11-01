@@ -1,4 +1,4 @@
-import createSagaMiddleware from 'redux-saga';
+// import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'react-router-redux';
 import {
   applyMiddleware,
@@ -16,15 +16,16 @@ const reduxDevTool = () => {
 };
 
 export default function configureStore(initialState, history) {
-  const sagaMiddleware = createSagaMiddleware();
-
-  const middleware = applyMiddleware(sagaMiddleware, routerMiddleware(history));
+  // const sagaMiddleware = createSagaMiddleware();
+  
+  const middleware = applyMiddleware(routerMiddleware(history));
+  // const middleware = applyMiddleware(sagaMiddleware, routerMiddleware(history));
 
   const composedStoreEnhancer = compose(middleware, reduxDevTool());
 
   const store = composedStoreEnhancer(createStore)(rootReducer, initialState);
 
-  sagaMiddleware.run(sagas);
+  //sagaMiddleware.run(sagas);
 
   if (module.hot) {
     module.hot.accept('./rootReducers', () => {
