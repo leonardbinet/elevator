@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import "./footer.css";
+import './footer.css';
 
 class Footer extends PureComponent {
   renderTwitter() {
@@ -15,6 +15,7 @@ class Footer extends PureComponent {
       </li>
     );
   }
+
   renderFacebook() {
     return (
       <li>

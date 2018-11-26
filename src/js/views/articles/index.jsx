@@ -1,37 +1,20 @@
-import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { Component, Fragment } from 'react';
 
-import { actions as exampleActions } from "../../redux/modules/articles";
-import { NavBar } from "../../common/components/navbar";
-import { Footer } from "../../common/components/footer";
-import { ArticlesHeader } from "../../common/components/headers";
-import { exampleSelector } from "../../redux/selectors/exampleSelector";
+import { NavBar } from '../../common/components/navbar';
 
-require("../../../style/custom.css");
+import { ArticlesHeader } from '../../common/components/headers';
+import { ArticleList } from '../../common/components/articles/articleList'
 
-const mapStateToProps = state => ({
-  example: exampleSelector(state)
-});
+require('../../../style/custom.css');
 
-const mapDispatchToProps = {
-  ...exampleActions
-};
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps
-)
 class ArticlesView extends Component {
-  static propTypes = {
-    example: PropTypes.object.isRequired
-  };
-
   render() {
     return (
       <Fragment>
         <NavBar {...this.props} />
         <ArticlesHeader />
+        <ArticleList />
       </Fragment>
     );
   }

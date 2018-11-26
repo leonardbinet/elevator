@@ -1,10 +1,10 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import LazyLoading from "./common/components/LazyLoading";
+import LazyLoading from './common/components/LazyLoading';
 
-const HomeRouteHandler = LazyLoading(() => import("./views/home"));
-const ArticlesRouteHandler = LazyLoading(() => import("./views/articles"));
+const HomeRouteHandler = LazyLoading(() => import('./views/home'));
+const ArticlesRouteHandler = LazyLoading(() => import('./views/articles'));
 
 module.exports = (
   <Switch>
@@ -12,4 +12,3 @@ module.exports = (
     <Route path="/articles" component={ArticlesRouteHandler} />
   </Switch>
 );
-

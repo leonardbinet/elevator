@@ -1,12 +1,12 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
 
 class Header extends PureComponent {
   render() {
-    const {img, content} = this.props
+    const { img, content } = this.props
     const headerStyle = {
       backgroundImage: `url(${img})`,
-      //minHeight: `70%`
+      // minHeight: `70%`
     }
     return (
       <header style={headerStyle}>

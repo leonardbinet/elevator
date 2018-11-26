@@ -16,7 +16,7 @@ class Loading extends PureComponent {
     if (isLoading) {
       if (timedOut) {
         return <div>{errorMessage}</div>;
-      } 
+      }
       return null;
     } if (error) {
       return <div>{errorMessage}</div>;

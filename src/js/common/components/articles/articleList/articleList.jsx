@@ -1,14 +1,39 @@
-import React, { PureComponent } from "react";
+
+import { func } from 'prop-types';
+
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { categoriesSelector } from '../../../../redux/selectors/articlesSelectors'
+import { fetchCategories } from '../../../../redux/modules/articles'
+
+const mapStateToProps = (state) => ({
+  categories: categoriesSelector(state),
+})
+
+const mapDispatchToProps = {
+  fetchCategories,
+}
 
 class ArticleList extends PureComponent {
+  static propTypes = {
+    fetchCategories: func.isRequired,
+  };
+
+  componentWillMount() {
+    const { categories } = this.props;
+    if (!categories || !categories.length) {
+      this.props.fetchCategories();
+    }
+  }
+
   renderCategory(category) {
     return (
-      <div class="col-md-4">
+      <div className="col-md-4" key={category.name}>
         <h2>{category.nom}</h2>
         <p>{category.description}</p>
         <br />
-        <div class="articles">
-          {categor.articles.forEach(article => {
+        <div className="articles">
+          {category.articles.map((article) => {
             return this.renderArticle(article);
           })}
         </div>
@@ -19,9 +44,11 @@ class ArticleList extends PureComponent {
   renderArticle(article) {
     const url = `/articles/${article.slug}`;
     return (
-      <div>
-        <a class="btn btn-default" href={url} role="button">
-          {article.shortTitle} »
+      <div key={article.slug}>
+        <a className="btn btn-default" href={url} role="button">
+          {article.shortTitle}
+          {' '}
+»
         </a>
       </div>
     );
@@ -29,12 +56,11 @@ class ArticleList extends PureComponent {
 
   render() {
     const { categories } = this.props;
-
     return (
       <section id="article">
-        <div class="container">
-          <div class="row">
-            {categories.forEach(category => this.renderCategory(category))}
+        <div className="container">
+          <div className="row">
+            {categories.map((category) => this.renderCategory(category))}
           </div>
         </div>
       </section>
@@ -42,4 +68,7 @@ class ArticleList extends PureComponent {
   }
 }
 
-export default ArticlesHeader;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ArticleList);

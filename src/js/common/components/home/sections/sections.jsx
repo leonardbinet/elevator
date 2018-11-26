@@ -1,8 +1,8 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent, Fragment } from 'react';
 
-import palier from "../../../../../assets/images/portfolio/palier_ascenseur.jpg";
-import technicien2 from "../../../../../assets/images/portfolio/technicien2.jpg";
-import legislation4 from "../../../../../assets/images/portfolio/legislation4.jpg";
+import palier from '../../../../../assets/images/portfolio/palier_ascenseur.jpg';
+import technicien2 from '../../../../../assets/images/portfolio/technicien2.jpg';
+import legislation4 from '../../../../../assets/images/portfolio/legislation4.jpg';
 
 class Section extends PureComponent {
   render() {
@@ -17,8 +17,9 @@ class Section extends PureComponent {
 
 class Sections extends PureComponent {
   renderAboutSection() {
+    const { aboutRef } = this.props;
     return (
-      <section className="bg-primary" id="about">
+      <section className="bg-primary" ref={aboutRef}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2 text-center">
@@ -31,7 +32,8 @@ class Sections extends PureComponent {
                 mobilité pour beaucoup de résidents de copropriété. Ce site a
                 pour but de vous aider à maîtriser ce domaine parfois complexe,
                 et souvent méconnu, afin de vous aider à prendre les bonnes
-                décisions.{" "}
+                décisions.
+                {' '}
               </p>
             </div>
           </div>
@@ -53,7 +55,7 @@ class Sections extends PureComponent {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-md-6 text-center">
+            <div className="col-lg-4 col-md-4 text-center">
               <div className="service-box">
                 <a
                   className="fa fa-4x fa-newspaper-o wow bounceIn text-primary"
@@ -67,7 +69,7 @@ class Sections extends PureComponent {
                 </p>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 text-center">
+            <div className="col-lg-4 col-md-4 text-center">
               <div className="service-box">
                 <a
                   className="fa fa-4x fa-paper-plane wow bounceIn text-primary"
@@ -80,7 +82,7 @@ class Sections extends PureComponent {
                 </p>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 text-center">
+            <div className="col-lg-4 col-md-4 text-center">
               <div className="service-box">
                 <a
                   className="fa fa-4x fa-magnet wow bounceIn text-primary"
@@ -105,7 +107,7 @@ class Sections extends PureComponent {
       <section className="no-padding" id="portfolio">
         <div className="container-fluid">
           <div className="row no-gutter">
-            <div className="col-lg-4 col-sm-6">
+            <div className="col-lg-4 col-sm-4">
               <a href="#" className="portfolio-box">
                 <img src={palier} className="img-responsive" alt="" />
                 <div className="portfolio-box-caption">
@@ -121,7 +123,7 @@ class Sections extends PureComponent {
                 </div>
               </a>
             </div>
-            <div className="col-lg-4 col-sm-6">
+            <div className="col-lg-4 col-sm-4">
               <a href="#" className="portfolio-box">
                 <img src={technicien2} className="img-responsive" alt="" />
                 <div className="portfolio-box-caption">
@@ -137,7 +139,7 @@ class Sections extends PureComponent {
                 </div>
               </a>
             </div>
-            <div className="col-lg-4 col-sm-6">
+            <div className="col-lg-4 col-sm-4">
               <a href="#" className="portfolio-box">
                 <img src={legislation4} className="img-responsive" alt="" />
                 <div className="portfolio-box-caption">
@@ -170,7 +172,7 @@ class Sections extends PureComponent {
               commerciales des ascensoristes
             </h2>
             <a
-              href="{% url 'accueil_prestataires' %}"
+              href="/#/prestataires"
               className="btn btn-default btn-xl"
             >
               Trouvez vos prestataires

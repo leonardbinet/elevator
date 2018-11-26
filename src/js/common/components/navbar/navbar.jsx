@@ -1,19 +1,16 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import "./navbar.css";
+import './navbar.css';
 
 class NavBar extends PureComponent {
   renderNavHeader() {
     return (
       <div className="navbar-header">
-        <button
-          type="button"
-          className="navbar-toggle collapsed"
-        >
+        <button type="button" className="navbar-toggle collapsed">
           <span className="sr-only">Toggle navigation</span>
           <i className="fa fa-bars" />
         </button>
-        <a className="navbar-brand page-scroll">Ascenseur en copropriété</a>
+        <a className="navbar-brand page-scroll" href="/#/">Ascenseur en copropriété</a>
       </div>
     );
   }
@@ -32,10 +29,10 @@ class NavBar extends PureComponent {
     return (
       <div className="collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
-          {this.renderItem("page-scroll", "#", "Dossiers thématiques")}
-          {this.renderItem("page-scroll", "#", "Posez vos questions")}
-          {this.renderItem("page-scroll", "#", "Trouvez un prestataire")}
-          {this.renderItem("page-scroll", "#", "Actualité")}
+          {this.renderItem('page-scroll', '/#/articles', 'Dossiers thématiques')}
+          {this.renderItem('page-scroll', '/#/questions', 'Posez vos questions')}
+          {this.renderItem('page-scroll', '/#/prestataires', 'Trouvez un prestataire')}
+          {this.renderItem('page-scroll', '/#/news', 'Actualité')}
         </ul>
       </div>
     );
@@ -43,7 +40,7 @@ class NavBar extends PureComponent {
 
   render() {
     return (
-      <nav className="navbar navbar-default navbar-fixed-top affix-top" id='mainNav'>
+      <nav className="navbar navbar-default navbar-fixed-top affix-top" id="mainNav">
         <div className="container-fluid">
           {this.renderNavHeader()}
           {this.renderNavBody()}
