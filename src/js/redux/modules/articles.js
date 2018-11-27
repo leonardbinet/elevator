@@ -1,6 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
+import { articlesCategories } from './articlesMock'
+
 const FETCH_CATEGORIES = 'app/ARTICLES/FETCH_CATEGORIES';
 
 // ------------------------------------
@@ -29,20 +31,7 @@ export const actions = {
 export const reducers = {
   [FETCH_CATEGORIES]: (state) => {
     // should make call to api
-    const categories = [
-      {
-        name: 'Simple name',
-        description: 'This is a category',
-        articles: [
-          { slug: 'ascenseur_cool', shortTitle: 'Cool stuff about elevators' },
-          {
-            slug: 'ascenseur_not_cool',
-            shortTitle: 'Bad stuff about elevators',
-          },
-        ],
-      },
-    ];
-    return state.setIn(['categories'], categories);
+    return state.setIn(['categories'], articlesCategories);
   },
 };
 

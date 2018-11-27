@@ -29,7 +29,7 @@ class ArticleList extends PureComponent {
   renderCategory(category) {
     return (
       <div className="col-md-4" key={category.name}>
-        <h2>{category.nom}</h2>
+        <h2>{category.name}</h2>
         <p>{category.description}</p>
         <br />
         <div className="articles">

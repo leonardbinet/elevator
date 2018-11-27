@@ -5,10 +5,12 @@ import LazyLoading from './common/components/LazyLoading';
 
 const HomeRouteHandler = LazyLoading(() => import('./views/home'));
 const ArticlesRouteHandler = LazyLoading(() => import('./views/articles'));
+const PrestatairesRouteHandler = LazyLoading(() => import('./views/prestataires'));
 
 module.exports = (
   <Switch>
     <Route exact path="/" component={HomeRouteHandler} />
     <Route path="/articles" component={ArticlesRouteHandler} />
+    <Route path="/prestataires" component={PrestatairesRouteHandler} />
   </Switch>
 );
