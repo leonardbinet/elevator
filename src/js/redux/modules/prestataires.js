@@ -17,10 +17,10 @@ export const constants = {
 // Actions
 // ------------------------------------
 
-export const fetchQuestions = createAction(FETCH_PRESTATAIRES, () => ({}));
+export const fetchPrestataires = createAction(FETCH_PRESTATAIRES, () => ({}));
 
 export const actions = {
-  fetchQuestions,
+  fetchPrestataires,
 };
 
 
@@ -35,6 +35,6 @@ export const reducers = {
   },
 };
 
-export const initialState = () => Map({ questions: [] });
+export const initialState = () => Map({ prestataires: [] });
 
 export default handleActions(reducers, initialState());

@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 
-import { NavBar } from '../../common/components/navbar';
-import { Sections } from '../../common/components/home/sections';
-import { HomeHeader } from '../../common/components/headers';
+import { NavBar } from 'js/common/components/navbar';
+import { Sections } from 'js/common/components/home/sections';
+import { HomeHeader } from 'js/common/components/headers';
 
-require('../../../style/custom.css');
+require('style/custom.css');
 
 class HomeView extends Component {
   constructor(props) {

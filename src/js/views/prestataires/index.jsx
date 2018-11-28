@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
 
 import { NavBar } from '../../common/components/navbar';
-
 import { PrestatairesHeader } from '../../common/components/headers';
-import { PrestataireList } from '../../common/components/prestataires/prestatairesList'
+import { PrestatairesList } from '../../common/components/prestataires/prestatairesList'
 
-require('../../../style/custom.css');
+require('style/custom.css');
 
 
 class PrestatairesView extends Component {
@@ -14,7 +13,7 @@ class PrestatairesView extends Component {
       <Fragment>
         <NavBar {...this.props} />
         <PrestatairesHeader />
-        <PrestataireList />
+        <PrestatairesList />
       </Fragment>
     );
   }

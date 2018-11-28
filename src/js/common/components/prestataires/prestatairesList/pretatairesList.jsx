@@ -26,41 +26,24 @@ class PrestatairesList extends PureComponent {
     }
   }
 
-  renderQuestionCategory(category) {
+  renderPrestataire(prestataire) {
     return (
-      <div className="col-md-4" key={category.name}>
-        <h2>{category.name}</h2>
-        <p>{category.description}</p>
+      <div className="col-md-4" key={prestataire.id}>
+        <h2>{prestataire.name}</h2>
+        <p>{prestataire.description}</p>
         <br />
-        <div className="articles">
-          {category.articles.map((article) => {
-            return this.renderArticle(article);
-          })}
-        </div>
-      </div>
-    );
-  }
-
-  renderArticle(article) {
-    const url = `/articles/${article.slug}`;
-    return (
-      <div key={article.slug}>
-        <a className="btn btn-default" href={url} role="button">
-          {article.shortTitle}
-          {' '}
-»
-        </a>
       </div>
     );
   }
 
   render() {
     const { prestataires } = this.props;
+    if (!prestataires){return null}
     return (
       <section id="questions">
         <div className="container">
           <div className="row">
-            {prestataires.map((prestataire) => this.renderQuestion(prestataire))}
+            {prestataires.map((prestataire) => this.renderPrestataire(prestataire))}
           </div>
         </div>
       </section>

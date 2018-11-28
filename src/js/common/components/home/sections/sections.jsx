@@ -58,7 +58,7 @@ class Sections extends PureComponent {
             <div className="col-lg-4 col-md-4 text-center">
               <div className="service-box">
                 <a
-                  className="fa fa-4x fa-newspaper-o wow bounceIn text-primary"
+                  className="fa fa-4x fa-newspaper wow bounceIn text-primary"
                   href="{% url 'accueil_articles' %}"
                 />
                 <h3>Des articles thèmatiques</h3>
