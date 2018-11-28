@@ -1,26 +1,25 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
-import { articlesCategories } from './articlesMock'
 
-const FETCH_CATEGORIES = 'app/ARTICLES/FETCH_CATEGORIES';
+const RECEIVE_CATEGORIES = 'app/ARTICLES/RECEIVE_CATEGORIES';
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 
 export const constants = {
-  FETCH_CATEGORIES,
+  RECEIVE_CATEGORIES,
 };
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
-export const fetchCategories = createAction(FETCH_CATEGORIES, () => ({}));
+export const receiveCategories = createAction(RECEIVE_CATEGORIES);
 
 export const actions = {
-  fetchCategories,
+  receiveCategories,
 };
 
 
@@ -29,9 +28,8 @@ export const actions = {
 // ------------------------------------
 
 export const reducers = {
-  [FETCH_CATEGORIES]: (state) => {
-    // should make call to api
-    return state.setIn(['categories'], articlesCategories);
+  [RECEIVE_CATEGORIES]: (state, action) => {
+    return state.setIn(['categories'], action.payload);
   },
 };
 

@@ -4,25 +4,28 @@ import { func } from 'prop-types';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { categoriesSelector } from '../../../../redux/selectors/articlesSelectors'
-import { fetchCategories } from '../../../../redux/modules/articles'
+import { receiveCategories } from '../../../../redux/modules/articles'
+
+import { articlesCategories } from '../../../../mock/articlesMock'
 
 const mapStateToProps = (state) => ({
   categories: categoriesSelector(state),
 })
 
 const mapDispatchToProps = {
-  fetchCategories,
+  receiveCategories,
 }
 
 class ArticleList extends PureComponent {
   static propTypes = {
-    fetchCategories: func.isRequired,
+    receiveCategories: func.isRequired,
   };
 
   componentWillMount() {
     const { categories } = this.props;
     if (!categories || !categories.length) {
-      this.props.fetchCategories();
+      // mock call
+      this.props.receiveCategories(articlesCategories);
     }
   }
 

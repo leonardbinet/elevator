@@ -4,25 +4,27 @@ import { func } from 'prop-types';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { prestatairesListSelector } from '../../../../redux/selectors/prestatairesSelectors'
-import { fetchPrestataires } from '../../../../redux/modules/prestataires'
+import { receivePrestataires } from '../../../../redux/modules/prestataires'
+import { prestatairesList } from '../../../../mock/prestatairesMock'
 
 const mapStateToProps = (state) => ({
   prestataires: prestatairesListSelector(state),
 })
 
 const mapDispatchToProps = {
-  fetchPrestataires,
+  receivePrestataires,
 }
 
 class PrestatairesList extends PureComponent {
   static propTypes = {
-    fetchPrestataires: func.isRequired,
+    receivePrestataires: func.isRequired,
   };
 
   componentWillMount() {
     const { prestataires } = this.props;
     if (!prestataires || !prestataires.length) {
-      this.props.fetchPrestataires();
+      // mock call
+      this.props.receivePrestataires(prestatairesList);
     }
   }
 

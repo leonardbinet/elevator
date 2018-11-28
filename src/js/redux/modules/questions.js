@@ -1,26 +1,24 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
-import { questionsList } from './questionsMock'
-
-const FETCH_QUESTIONS = 'app/QUESTIONS/FETCH_QUESTIONS';
+const RECEIVE_QUESTIONS = 'app/QUESTIONS/RECEIVE_QUESTIONS';
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 
 export const constants = {
-  FETCH_QUESTIONS,
+  RECEIVE_QUESTIONS,
 };
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
-export const fetchQuestions = createAction(FETCH_QUESTIONS, () => ({}));
+export const receiveQuestions = createAction(RECEIVE_QUESTIONS);
 
 export const actions = {
-  fetchQuestions,
+  receiveQuestions,
 };
 
 
@@ -29,9 +27,8 @@ export const actions = {
 // ------------------------------------
 
 export const reducers = {
-  [FETCH_QUESTIONS]: (state) => {
-    // should make call to api
-    return state.setIn(['questions'], questionsList);
+  [RECEIVE_QUESTIONS]: (state, action) => {
+    return state.setIn(['questions'], action.payload);
   },
 };
 

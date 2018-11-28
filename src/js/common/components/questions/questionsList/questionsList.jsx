@@ -4,25 +4,28 @@ import { func } from 'prop-types';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { questionsListSelector } from '../../../../redux/selectors/questionsSelectors'
-import { fetchQuestions } from '../../../../redux/modules/questions'
+import { receiveQuestions } from '../../../../redux/modules/questions'
+
+import { questionsList } from '../../../../mock/questionsMock'
 
 const mapStateToProps = (state) => ({
   questions: questionsListSelector(state),
 })
 
 const mapDispatchToProps = {
-  fetchQuestions,
+  receiveQuestions,
 }
 
 class QuestionsList extends PureComponent {
   static propTypes = {
-    fetchQuestions: func.isRequired,
+    receiveQuestions: func.isRequired,
   };
 
   componentWillMount() {
     const { questions } = this.props;
     if (!questions || !questions.length) {
-      this.props.fetchQuestions();
+      // mock call
+      this.props.receiveQuestions(questionsList);
     }
   }
 

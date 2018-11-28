@@ -1,26 +1,24 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
-import { prestatairesList } from './prestatairesMock'
-
-const FETCH_PRESTATAIRES = 'app/PRESTATAIRES/FETCH_PRESTATAIRES';
+const RECEIVE_PRESTATAIRES = 'app/PRESTATAIRES/RECEIVE_PRESTATAIRES';
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 
 export const constants = {
-  FETCH_PRESTATAIRES,
+  RECEIVE_PRESTATAIRES,
 };
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
-export const fetchPrestataires = createAction(FETCH_PRESTATAIRES, () => ({}));
+export const receivePrestataires = createAction(RECEIVE_PRESTATAIRES);
 
 export const actions = {
-  fetchPrestataires,
+  receivePrestataires,
 };
 
 
@@ -29,9 +27,8 @@ export const actions = {
 // ------------------------------------
 
 export const reducers = {
-  [FETCH_PRESTATAIRES]: (state) => {
-    // should make call to api
-    return state.setIn(['prestataires'], prestatairesList);
+  [RECEIVE_PRESTATAIRES]: (state, action) => {
+    return state.setIn(['prestataires'], action.payload);
   },
 };
 
